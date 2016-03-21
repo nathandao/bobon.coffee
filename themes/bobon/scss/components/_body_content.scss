@@ -1,6 +1,13 @@
-.chapter-title {
+.page-title {
   box-sizing: border-box;
   padding: 0 20px;
   margin-bottom: 1em;
   background: $global-yellow;
+}
+
+.chapter-content {
+  padding-top: 60px;
+  @media #{$large-up} {
+    padding-top: 0px;
+  }
 }

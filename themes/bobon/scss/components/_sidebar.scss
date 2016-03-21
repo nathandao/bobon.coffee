@@ -1,13 +1,24 @@
 .sidebar {
+  background: $body-background;
   border-right: 1px solid #c1c1c1;
+  display: block;
   position: fixed;
   top: 60px;
   bottom: 0px;
   left: 0px;
   overflow-y: scroll;
   box-sizing: border-box;
-  padding-top: 10px;
-
+  padding-top: 60px;
+  z-index: 99;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease 0s, opacity 0.3s ease;
+  &.active {
+    transform: translateX(0);
+  }
+  @media #{$large-up} {
+    transform: translateX(0);
+    padding-top: 10px;
+  }
   /* All levels */
   ul {
     margin: 0px;
@@ -78,5 +89,36 @@
 }
 
 .chapter-sidebar-toggle {
+  background: $global-yellow;
+  box-sizing: border-box;
+  cursor: pointer;
   display: block;
+  font-family: $nav-font-family;
+  font-size: 1.3em;
+  left: 0px;
+  padding: 0px 15px;
+  line-height: 40px;
+  height: 40px;
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+  text-transform: uppercase;
+  user-select: none;
+  .open {
+    display: block;
+  }
+  .close {
+    display: none;
+  }
+  &.active {
+    .open {
+      display: none;
+    }
+    .close {
+      display: block;
+    }
+  }
+  @media #{$large-up} {
+    display: none;
+  }
 }

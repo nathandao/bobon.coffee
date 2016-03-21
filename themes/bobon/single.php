@@ -3,14 +3,12 @@
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
   <?php if ( $post_type === "chapter" ) : ?>
     <div class="large-12 row">
-      <div class="medium-4 large-3 columns sidebar chapter-sidebar">
-        <?php include_once( get_template_directory() . '/includes/chapter-hierarchy.php' ) ?>
-      </div>
-      <span class="chapter-sidebar-toggle">
-        <?php echo __( 'Phụ lục >', 'bobon' ) ?>
-      </span>
-      <article class="medium-8 large-9 columns medium-offset-4 large-offset-3">
-        <h1 class="chapter-title row"><?php the_title() ?></h1>
+      <?php include_once( get_template_directory() . '/includes/chapter-sidebar.php' ) ?>
+      <article class="medium-8 large-9 columns medium-offset-4 large-offset-3 chapter-content">
+        <h1 class="page-title row">
+          <?php echo wordpress_breadcrumbs() ?>
+          <?php the_title() ?>
+        </h1>
         <?php the_content() ?>
       </article>
     </div>

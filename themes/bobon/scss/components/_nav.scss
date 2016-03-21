@@ -28,6 +28,7 @@
   background: #222;
   height: 60px;
   left: 0px;
+  overflow: hidden;
   position: fixed;
   top: 0px;
   width: 100%;
@@ -39,7 +40,7 @@
       a {
         color: #fff;
         display: block;
-        font-family: 'latin_modern_mono10_regular';
+        font-family: $nav-font-family;
         font-size: 1.3em;
         line-height: 1;
         line-height: 60px;
