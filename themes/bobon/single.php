@@ -1,24 +1,19 @@
 <?php get_header() ?>
-<?php include ('nav.php'); ?>
-
+<?php include_once( get_template_directory() . '/includes/top-nav.php' ); ?>
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-  <?php if ( $post_type === "chapter" ) ?>
-  <div class="large-12 row">
-    <div class="large-3 columns sidebar">
-      <?php
-      $top_page_id = get_top_parent( $post_id );
-      $parent_page = get_post( $top_page_id );
-      ?>
-      <h2><?php echo $parent_page->post_title ?></h2>
-      <?php echo get_page_sidebar_menu( $post->ID ) ?>
+  <?php if ( $post_type === "chapter" ) : ?>
+    <div class="large-12 row">
+      <div class="medium-4 large-3 columns sidebar chapter-sidebar">
+        <?php include_once( get_template_directory() . '/includes/chapter-hierarchy.php' ) ?>
+      </div>
+      <span class="chapter-sidebar-toggle">
+        <?php echo __( 'Phụ lục >', 'bobon' ) ?>
+      </span>
+      <article class="medium-8 large-9 columns medium-offset-4 large-offset-3">
+        <h1 class="chapter-title row"><?php the_title() ?></h1>
+        <?php the_content() ?>
+      </article>
     </div>
-
-    <div class="large-9 columns">
-      <h1><?php the_title() ?></h1>
-      <?php the_content() ?>
-    </div>
-  </div>
-  <?php endif ?>
+  <?php endif; ?>
 <?php endwhile; endif; ?>
-
 <?php get_footer() ?>

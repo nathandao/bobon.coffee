@@ -25,7 +25,7 @@ function custom_post_type() {
     $labels = array(
         'name'                  => _x( 'Chapters', 'Chapter', 'bobon' ),
         'singular_name'         => _x( 'Chapter', 'Chapter', 'bobon' ),
-        'menu_name'             => __( 'Library', 'bobon' ),
+        'menu_name'             => __( 'Famer\'s Library', 'bobon' ),
         'name_admin_bar'        => __( 'Chapter', 'bobon' ),
         'archives'              => __( 'Item Archives', 'bobon' ),
         'parent_item_colon'     => __( 'Parent Item:', 'bobon' ),
@@ -50,8 +50,8 @@ function custom_post_type() {
         'filter_items_list'     => __( 'Filter items list', 'bobon' ),
     );
     $args = array(
-        'label'                 => __( 'Library', 'bobon' ),
-        'description'           => __( 'All library chapters', 'bobon' ),
+        'label'                 => __( 'Chapter', 'bobon' ),
+        'description'           => __( 'All chapters', 'bobon' ),
         'labels'                => $labels,
         'supports'              => array( 'title', 'editor', 'custom-fields', 'revisions', 'thumbnail', 'page-attributes' ),
         'taxonomies'            => array( 'chapter_type' ),
@@ -60,7 +60,7 @@ function custom_post_type() {
         'show_ui'               => true,
         'show_in_menu'          => true,
         'show_in_rest'          => true,
-        'rest_base'             => 'library',
+        'rest_base'             => 'farmer_library',
         'menu_position'         => 5,
         'show_in_admin_bar'     => true,
         'show_in_nav_menus'     => true,
@@ -74,13 +74,13 @@ function custom_post_type() {
 }
 add_action( 'init', 'custom_post_type', 0 );
 
-// Register Custom Chapter Type
+// Register Custom Chapter Category
 function custom_taxonomy() {
 
     $labels = array(
-        'name'                       => _x( 'Chapter Types', 'Chapter Types', 'bobon' ),
-        'singular_name'              => _x( 'Chapter Type', 'Chapter Type', 'bobon' ),
-        'menu_name'                  => __( 'Chapter Types', 'bobon' ),
+        'name'                       => _x( 'Chapter Categories', 'Chapter Categories', 'bobon' ),
+        'singular_name'              => _x( 'Chapter Category', 'Chapter Category', 'bobon' ),
+        'menu_name'                  => __( 'Chapter Categories', 'bobon' ),
         'all_items'                  => __( 'All Items', 'bobon' ),
         'parent_item'                => __( 'Parent Item', 'bobon' ),
         'parent_item_colon'          => __( 'Parent Item:', 'bobon' ),
@@ -108,7 +108,7 @@ function custom_taxonomy() {
         'show_in_nav_menus'          => true,
         'show_tagcloud'              => true,
     );
-    register_taxonomy( 'chapter_type', array( 'chapter' ), $args );
+    register_taxonomy( 'chapter_category', array( 'chapter' ), $args );
 
 }
 add_action( 'init', 'custom_taxonomy', 0 );
@@ -148,7 +148,7 @@ function tsm_convert_id_to_term_in_query($query) {
 add_filter('parse_query', 'tsm_convert_id_to_term_in_query');
 
 function allowed_post_types($allowed_post_types) {
-    $allowed_post_types[] = 'product';
+    $allowed_post_types[] = 'chapter';
     return $allowed_post_types;
 }
 add_filter( 'rest_api_allowed_post_types', 'allowed_post_types');
@@ -194,7 +194,7 @@ function get_page_hierarchy_html( $top_page_id, $post_id, $class = "" ) {
     if ( $page->ID === $post_id ) {
       $link_class = "class = 'active'";
     }
-    $output .= "<li class='large-12 columns row'><a href='" . $permalink . "' " . $link_class . ">" . $page->post_title . "</a>";
+    $output .= "<li class='small-12 columns row'><a href='" . $permalink . "' " . $link_class . ">" . $page->post_title . "</a>";
     $output .= get_page_hierarchy_html( $page->ID, $post_id );
     $output .= "</li>";
   }

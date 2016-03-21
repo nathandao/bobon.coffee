@@ -1,0 +1,21 @@
+body {
+  padding-top: 60px;
+  font-weight: 300;
+  font-size: 16px;
+}
+
+// Home Page
+body.home {
+  font-family: 'latin_modern_mono10_regular';
+  .logo {
+    background: url("../images/logo.png") top left transparent;
+    float: left;
+    font-size: 4em;
+    line-height: 1;
+    margin-top: 1em;
+    padding: 0px 30px;
+    margin-bottom: 90px;
+    width: 460px;
+    height: 143px;
+  }
+}

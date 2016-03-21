@@ -1,0 +1,82 @@
+.sidebar {
+  border-right: 1px solid #c1c1c1;
+  position: fixed;
+  top: 60px;
+  bottom: 0px;
+  left: 0px;
+  overflow-y: scroll;
+  box-sizing: border-box;
+  padding-top: 10px;
+
+  /* All levels */
+  ul {
+    margin: 0px;
+    list-style: none;
+    min-width: 100%;
+    li {
+      padding-left: 15px;
+    }
+    a {
+      width: 100%;
+      float: left;
+      box-sizing: content-box;
+      padding-left: 20px;
+      padding-right: 20px;
+      &:hover, &.active {
+        background: #d1d1d1;
+      }
+    }
+  }
+
+  /* First level */
+  > ul {
+    > li {
+      margin-top: 10px;
+      > a {
+        font-size: 1.3em;
+        font-weight: 500;
+      }
+      /* Second level */
+      > ul {
+        a {
+          position: relative;
+          &:before {
+            display: block;
+            top: 0px;
+            left: 20px;
+            position: absolute;
+            font-weight: bold;
+          }
+        }
+        > li {
+          /* third level */
+          > ul {
+            > li {
+              > a {
+                padding-left: 35px;
+                &:before {
+                  content: ".";
+                }
+              }
+              /* fourth level */
+              > ul {
+                > li {
+                  > a {
+                    padding-left: 48px;
+                    &:before {
+                      content: ". . .";
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.chapter-sidebar-toggle {
+  display: block;
+}
