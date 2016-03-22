@@ -32,6 +32,7 @@
   position: fixed;
   top: 0px;
   width: 100%;
+  z-index: 99999;
   ul.menu {
     float: left;
     overflow: hidden;
@@ -65,4 +66,121 @@
   float: left;
   margin-top: 12px;
   padding: 0px;
+}
+
+.hierarchy-list {
+  /* All levels */
+  ul {
+    margin: 0px;
+    list-style: none;
+    min-width: 100%;
+    li {
+      padding-left: 15px;
+    }
+    a {
+      width: 100%;
+      float: left;
+      box-sizing: content-box;
+      padding-left: 20px;
+      padding-right: 20px;
+      &:hover, &.active {
+        background: $black;
+        color: $white;
+      }
+    }
+  }
+  /* First level */
+  > ul {
+    > li {
+      margin-top: 10px;
+      > a {
+        font-size: 1.3em;
+        font-weight: 500;
+      }
+      /* Second level */
+      > ul {
+        a {
+          position: relative;
+          &:before {
+            display: block;
+            top: 0px;
+            left: 20px;
+            position: absolute;
+            font-weight: bold;
+          }
+        }
+        > li {
+          /* Third level */
+          > ul {
+            > li {
+              > a {
+                padding-left: 35px;
+                &:before {
+                  content: ".";
+                }
+              }
+              /* Fourth level */
+              > ul {
+                > li {
+                  > a {
+                    padding-left: 48px;
+                    &:before {
+                      content: ". . .";
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.hierarchy-toggle {
+  cursor: pointer;
+  margin-bottom: 40px;
+  user-select: none;
+  h2 {
+    position: relative;
+    box-sizing: border-box;
+    box-sizing: border-box;
+    background: $global-yellow;
+    transition: background 0.3s ease 0s, color 0.3s ease 0s;
+    @media #{$large-up} {
+      text-align: right;
+    }
+  }
+  &.active {
+    h2 {
+      &:after {
+        background: $global-yellow;
+        content: "";
+        display: block;
+        height: 100%;
+        position: absolute;
+        right: -20px;
+        top: 0px;
+        width: 20px;
+      }
+    }
+  }
+}
+
+.hierarchy-drawer {
+  background: $global-yellow;
+  bottom: 0px;
+  overflow-x: hidden;
+  overflow-y: scroll-y;
+  padding-top: 30px;
+  position: fixed;
+  right: 0px;
+  top: 60px;
+  transform: translateX(100%);
+  transition: transform 0.3s ease 0s;
+  z-index: 100;
+  &.active {
+    transform: translateX(0);
+  }
 }

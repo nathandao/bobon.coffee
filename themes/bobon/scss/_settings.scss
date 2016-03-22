@@ -46,7 +46,8 @@
 
 $nav-font-family: 'latin_modern_mono10_regular';
 $global-font-size: 100%;
-$global-width: rem-calc(1200);
+// $global-width: rem-calc(1200);
+$global-width: 100%;
 $global-lineheight: 1.5;
 $primary-color: #1d1d1d;
 $secondary-color: #222;
@@ -73,6 +74,7 @@ $header-secondary-font-family: 'eb_garamond12_regular';
 
 // Custom colors
 $global-yellow: #ffe74d;
+$border-color: #c1c1c1;
 
 // 2. Breakpoints
 // --------------

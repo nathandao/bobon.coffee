@@ -207,31 +207,20 @@ function get_page_sidebar_menu( $post_id, $class = "" ) {
   return get_page_hierarchy_html( $top_page_id, $post_id, $class );
 }
 
-function wordpress_breadcrumbs() {
-  $delimiter = '|';
-  $currentBefore = '<span class="current">';
-  $currentAfter = '</span>';
-  if ( !is_home() && !is_front_page() || is_paged() ) {
-    echo '<div id="crumbs">';
-    global $post;
-	if ( is_page() && !$post->post_parent ) {
-		echo $currentBefore;
-		the_title();
-		echo $currentAfter; }
-	elseif ( is_page() && $post->post_parent ) {
-      $parent_id  = $post->post_parent;
-      $breadcrumbs = array();
-      while ($parent_id) {
-        $page = get_page($parent_id);
-        $breadcrumbs[] = '<a href="' . get_permalink($page->ID) . '">' . get_the_title($page->ID) . '</a>';
-        $parent_id  = $page->post_parent;
-      }
-      $breadcrumbs = array_reverse($breadcrumbs);
-      foreach ($breadcrumbs as $crumb) echo $crumb . ' ' . $delimiter . ' ';
-      echo $currentBefore;
-      the_title();
-      echo $currentAfter;
+function get_post_type_parents( $post_type ) {
+  $top_pages = array();
+  $args = array(
+    'hierarchical' => -1,
+    'offset' => 0,
+    'post_type' => $post_type,
+    'post_status' => 'publish'
+  );
+  $pages = get_pages( $args );
+  foreach ( $pages as $page ) {
+    $parent_id = wp_get_post_parent_id( $page->ID );
+    if ($parent_id == 0) {
+      $top_pages[] = $page;
     }
-    echo '</div>';
   }
+  return $top_pages;
 }

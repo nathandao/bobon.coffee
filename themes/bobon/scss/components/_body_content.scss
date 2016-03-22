@@ -1,8 +1,11 @@
 .page-title {
   box-sizing: border-box;
   padding: 0 20px;
-  margin-bottom: 1em;
-  background: $global-yellow;
+  margin-bottom: 0.5em;
+  float: left;
+  .single-chapter & {
+    width: 100%;
+  }
 }
 
 .chapter-content {
@@ -10,4 +13,8 @@
   @media #{$large-up} {
     padding-top: 0px;
   }
+}
+
+.full-width-content {
+  padding-top: 30px;
 }

@@ -1,4 +1,4 @@
-<div class="medium-4 large-3 columns sidebar chapter-sidebar">
+<div class="small-12 large-3 columns sidebar chapter-sidebar hierarchy-list">
   <?php include_once( get_template_directory() . '/includes/chapter-hierarchy.php' ) ?>
 </div>
 <div class="chapter-sidebar-toggle">
