@@ -3,7 +3,7 @@
     <a href="/" class="nav-logo"><img src="<?php echo get_template_directory_uri() . "/images/logo_small.png" ?>"/></a>
     <?php
     $args = array(
-      'menu' => 3,
+      'menu' => 'main-menu',
       'menu-class' => 'main-menu',
       'container' => '',
     );
