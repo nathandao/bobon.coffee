@@ -25,7 +25,7 @@ function custom_post_type() {
     $labels = array(
         'name'                  => _x( 'Chapters', 'Chapter', 'bobon' ),
         'singular_name'         => _x( 'Chapter', 'Chapter', 'bobon' ),
-        'menu_name'             => __( 'Famer\'s Library', 'bobon' ),
+        'menu_name'             => __( 'Farmer\'s Library', 'bobon' ),
         'name_admin_bar'        => __( 'Chapter', 'bobon' ),
         'archives'              => __( 'Item Archives', 'bobon' ),
         'parent_item_colon'     => __( 'Parent Item:', 'bobon' ),
