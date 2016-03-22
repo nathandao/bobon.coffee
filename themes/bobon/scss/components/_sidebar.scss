@@ -15,7 +15,7 @@
     transform: translateX(0);
   }
   @media #{$large-up} {
-    padding-top: 10px;
+    padding-top: 30px;
     transform: translateX(0);
   }
 }
@@ -30,7 +30,7 @@
   height: 40px;
   left: 0px;
   line-height: 40px;
-  padding: 0px 15px;
+  padding: 0px 20px;
   position: fixed;
   text-transform: uppercase;
   user-select: none;

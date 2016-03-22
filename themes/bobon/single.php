@@ -5,10 +5,8 @@
     <?php $parent_id = wp_get_post_parent_id( $post->ID ) ?>
     <div class="large-12 row">
       <?php include_once( get_template_directory() . '/includes/chapter-sidebar.php' ) ?>
-      <h1 class="large-12 columns large-offset-3 page-title">
-          <?php the_title() ?>
-      </h1>
       <article class="large-9 columns large-offset-3 chapter-content">
+        <h1 class="page-title"><?php the_title() ?></h1>
         <?php the_content() ?>
       </article>
     </div>

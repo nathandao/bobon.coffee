@@ -1,9 +1,38 @@
 .border-left {
-  border-left: 5px solid $border-color;
+  @media #{$large-up} {
+    border-left: 5px solid $border-color;
+    box-sizing: border-box;
+  }
+}
+
+.no-border-left-mobile {
+  border-left: 0;
+}
+
+.border-bottom {
+  position: relative;
   box-sizing: border-box;
+  &:after {
+    position: absolute;
+    bottom: 0px;
+    height: 2px;
+    content: "";
+    display: block;
+    background: #222;
+    left: 20px;
+    right: 20px;
+  }
 }
 
 .side-padding {
   padding-left: 20px;
   padding-right: 20px;
 }
+
+
+
+
+
+
+
+
