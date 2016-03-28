@@ -4,6 +4,11 @@ body {
   font-size: 16px;
 }
 
+ul {
+  clear: both;
+  display: block;
+}
+
 // Home Page
 body.home {
   .logo {
