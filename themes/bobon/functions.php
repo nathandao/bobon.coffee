@@ -53,7 +53,7 @@ function custom_post_type() {
         'label'                 => __( 'Chapter', 'bobon' ),
         'description'           => __( 'All chapters', 'bobon' ),
         'labels'                => $labels,
-        'supports'              => array( 'title', 'editor', 'custom-fields', 'revisions', 'thumbnail', 'page-attributes' ),
+        'supports'              => array( 'title', 'editor', 'custom-fields', 'revisions', 'thumbnail', 'page-attributes', 'author' ),
         'taxonomies'            => array( 'chapter_type' ),
         'hierarchical'          => true,
         'public'                => true,
@@ -173,10 +173,12 @@ function get_page_hierarchy_html( $top_page_id, $post_id, $class = "" ) {
   $output = "";
   $args = array(
     'hierarchical' => 1,
-    'parent' => $top_page_id,
     'offset' => 0,
-    'post_type' => 'chapter',
-    'post_status' => 'publish'
+    'order'=>'ASC',
+    'sort_column' => 'menu_order',
+    'parent' => $top_page_id,
+    'post_status' => 'publish',
+    'post_type' => 'chapter'
   ); 
   $pages = get_pages( $args );
   // Return nothing if there is no child page
@@ -212,8 +214,10 @@ function get_post_type_parents( $post_type ) {
   $args = array(
     'hierarchical' => -1,
     'offset' => 0,
+    'order' => 'ASC',
+    'post_status' => 'publish',
     'post_type' => $post_type,
-    'post_status' => 'publish'
+    'sort_column' => 'menu_order'
   );
   $pages = get_pages( $args );
   foreach ( $pages as $page ) {
