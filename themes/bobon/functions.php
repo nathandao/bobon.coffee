@@ -53,7 +53,7 @@ function custom_post_type() {
         'label'                 => __( 'Chapter', 'bobon' ),
         'description'           => __( 'All chapters', 'bobon' ),
         'labels'                => $labels,
-        'supports'              => array( 'title', 'editor', 'custom-fields', 'revisions', 'thumbnail', 'page-attributes', 'author' ),
+        'supports'              => array( 'title', 'editor', 'custom-fields', 'revisions', 'thumbnail', 'page-attributes', 'author', 'excerpt' ),
         'taxonomies'            => array( 'chapter_type' ),
         'hierarchical'          => true,
         'public'                => true,
