@@ -25,7 +25,7 @@
           <h2 class="side-padding btn btn-primary"><?php echo $top_page->post_title ?></h2>
         </div>
         <div class="large-5 small-12 columns hierarchy-list border-left">
-          <?php echo $top_page->post_content ?>
+          <?php echo $top_page->post_excerpt ?>
         </div>
       </div>
       <div class="small-12 large-7 row columns hierarchy-drawer hierarchy-list" id="hierarchy-drawer-<?php echo $top_page->ID ?>">
