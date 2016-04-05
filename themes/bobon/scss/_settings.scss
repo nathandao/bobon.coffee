@@ -109,20 +109,20 @@ $header-font-style: normal;
 $font-family-monospace: Consolas, 'Liberation Mono', Courier, monospace;
 $header-sizes: (
   small: (
-    'h1': 24,
-    'h2': 20,
-    'h3': 19,
+    'h1': 42,
+    'h2': 36,
+    'h3': 24,
     'h4': 18,
     'h5': 17,
-    'h6': 16,
+    'h6': 20,
   ),
   medium: (
-    'h1': 48,
-    'h2': 40,
-    'h3': 31,
-    'h4': 25,
-    'h5': 20,
-    'h6': 16,
+    'h1': 68,
+    'h2': 55,
+    'h3': 38,
+    'h4': 28,
+    'h5': 24,
+    'h6': 20,
   ),
 );
 $header-color: inherit;
