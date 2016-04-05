@@ -31,3 +31,17 @@ body.home {
     height: 143px;
   }
 }
+
+article {
+  strong {
+    font-weight: 400;
+  }
+  ol, ul {
+    li {
+      margin-top: 0.5em;
+    }
+  }
+  ul {
+    list-style: circle;
+  }
+}
