@@ -228,3 +228,11 @@ function get_post_type_parents( $post_type ) {
   }
   return $top_pages;
 }
+
+function bobon_get_page_title() {
+  $title = get_the_title();
+  if ( !is_home() ) {
+    $title = "Bobon | " . $title;
+  }
+  return $title;
+}
