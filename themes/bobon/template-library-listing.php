@@ -8,7 +8,7 @@
 <?php include_once( get_template_directory() . '/includes/top-nav.php' ) ?>
 
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-  <div class="small-12 columns row">
+  <div class="small-12 large-5 columns row">
     <h1 class="page-title"><?php the_title() ?></h1>
   </div>
   <div class="row">
