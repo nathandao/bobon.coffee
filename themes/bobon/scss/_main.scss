@@ -46,6 +46,12 @@ article {
   .wp-caption {
     max-width: 130% !important;
     margin-left: -15%;
+    p {
+      padding: 0.5em 1em;
+      font-size: 0.8em;
+      color: #fff;
+      background: $dark-gray;
+    }
   }
 
   img {
