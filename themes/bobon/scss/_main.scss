@@ -54,3 +54,8 @@ article {
     }
   }
 }
+
+.wp-caption,
+img {
+  max-width: 100% !important;
+}
