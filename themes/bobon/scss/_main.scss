@@ -55,12 +55,15 @@ article {
   }
 }
 
-.wp-caption,
+.wp-caption {
+  max-width: 130% !important;
+  margin-left: -15%;
+}
+
 img {
-  max-width: 100% !important;
+  width: 100% !important;
 }
 
 .wp-caption-text {
-  font-size: 0.8em;
   font-style: italic;
 }
