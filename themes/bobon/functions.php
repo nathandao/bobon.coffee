@@ -7,13 +7,15 @@ function bobon_init() {
   register_nav_menu('home-nav',__( 'Home Menu' ));
   add_image_size( 'bobon-full-horz', 1600, 400, true );
   add_image_size( 'bobon-full-horz-high', 1600, 700, true );
+  add_image_size( 'bobon-sqr-med', 500, 500, true );
 }
 add_action( 'init', 'bobon_init' );
 
 function bobon_custom_sizes( $sizes ) {
   return array_merge( $sizes, array(
-    'bobon-full-horz' => __( "Full horizontal" ),
-    'bobon-full-horz-high' => __( "Full horizontal high" ),
+    'bobon-full-horz' => __( 'Full horizontal' ),
+    'bobon-full-horz-high' => __( 'Full horizontal high' ),
+    'bobon-sqr-med' => __( 'Bobon square medium' ),
   ) );
 }
 add_filter( 'image_size_names_choose', 'bobon_custom_sizes' );
