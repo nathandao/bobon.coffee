@@ -2,93 +2,101 @@
 
 // Register stuff during init.
 function bobon_init() {
-    add_theme_support( 'post-thumbnails' );
-    register_nav_menu('main-nav',__( 'Main Menu' ));
-    register_nav_menu('home-nav',__( 'Home Menu' ));
+  add_theme_support( 'post-thumbnails' );
+  register_nav_menu('main-nav',__( 'Main Menu' ));
+  register_nav_menu('home-nav',__( 'Home Menu' ));
+  add_image_size( 'bobon-full-horz', 1600, 400, true );
 }
 add_action( 'init', 'bobon_init' );
 
+function bobon_custom_sizes( $sizes ) {
+  return array_merge( $sizes, array(
+    'bobon-full-horz' => __( "Full horizontal" ),
+  ) );
+}
+add_filter( 'image_size_names_choose', 'bobon_custom_sizes' );
+
 // Queue custom css and js files.
 function add_theme_scripts() {
-    wp_enqueue_style( 'app', get_template_directory_uri() . "/css/app.css" );
+  wp_enqueue_style( 'app', get_template_directory_uri() . "/css/app.css" );
 
-    // Register foundation.js dependency.
-    wp_register_script( 'foundation', get_template_directory_uri() . '/bower_components/foundation-sites/dist/foundation.min.js', array ( 'jquery' ), 1.1, true);
+  // Register foundation.js dependency.
+  wp_register_script( 'foundation', get_template_directory_uri() . '/bower_components/foundation-sites/dist/foundation.min.js', array ( 'jquery' ), 1.1, true);
 
-    // App js file.
-    wp_enqueue_script( 'app', get_template_directory_uri() . '/js/app.js', array ( 'foundation' ), 1.1, true);
+  // App js file.
+  wp_enqueue_script( 'app', get_template_directory_uri() . '/js/app.js', array ( 'foundation' ), 1.1, true);
 }
 add_action( 'wp_enqueue_scripts', 'add_theme_scripts' );
 
 // Register Custom Post Types
 function custom_post_type() {
-    $labels = array(
-        'name'                  => _x( 'Chapters', 'Chapter', 'bobon' ),
-        'singular_name'         => _x( 'Chapter', 'Chapter', 'bobon' ),
-        'menu_name'             => __( 'Farmer\'s Library', 'bobon' ),
-        'name_admin_bar'        => __( 'Chapter', 'bobon' ),
-        'archives'              => __( 'Item Archives', 'bobon' ),
-        'parent_item_colon'     => __( 'Parent Item:', 'bobon' ),
-        'all_items'             => __( 'All Chapters', 'bobon' ),
-        'add_new_item'          => __( 'Add New Chapter', 'bobon' ),
-        'add_new'               => __( 'Add New', 'bobon' ),
-        'new_item'              => __( 'New Item', 'bobon' ),
-        'edit_item'             => __( 'Edit Item', 'bobon' ),
-        'update_item'           => __( 'Update Item', 'bobon' ),
-        'view_item'             => __( 'View Item', 'bobon' ),
-        'search_items'          => __( 'Search Item', 'bobon' ),
-        'not_found'             => __( 'Not found', 'bobon' ),
-        'not_found_in_trash'    => __( 'Not found in Trash', 'bobon' ),
-        'featured_image'        => __( 'Featured Image', 'bobon' ),
-        'set_featured_image'    => __( 'Set featured image', 'bobon' ),
-        'remove_featured_image' => __( 'Remove featured image', 'bobon' ),
-        'use_featured_image'    => __( 'Use as featured image', 'bobon' ),
-        'insert_into_item'      => __( 'Insert into item', 'bobon' ),
-        'uploaded_to_this_item' => __( 'Uploaded to this item', 'bobon' ),
-        'items_list'            => __( 'Items list', 'bobon' ),
-        'items_list_navigation' => __( 'Items list navigation', 'bobon' ),
-        'filter_items_list'     => __( 'Filter items list', 'bobon' ),
-    );
-    $args = array(
-        'label'                 => __( 'Chapter', 'bobon' ),
-        'description'           => __( 'All chapters', 'bobon' ),
-        'labels'                => $labels,
-        'supports'              => array( 'title', 'editor', 'custom-fields', 'revisions', 'thumbnail', 'page-attributes', 'author', 'excerpt' ),
-        'taxonomies'            => array( 'chapter_type' ),
-        'hierarchical'          => true,
-        'public'                => true,
-        'show_ui'               => true,
-        'show_in_menu'          => true,
-        'show_in_rest'          => true,
-        'rest_base'             => 'farmer_library',
-        'menu_position'         => 5,
-        'show_in_admin_bar'     => true,
-        'show_in_nav_menus'     => true,
-        'can_export'            => true,
-        'has_archive'           => true,
-        'exclude_from_search'   => true,
-        'publicly_queryable'    => true,
-        'capability_type'       => 'page',
-    );
-    register_post_type( 'chapter', $args );
+  $labels = array(
+    'name'                  => _x( 'Chapters', 'Chapter', 'bobon' ),
+    'singular_name'         => _x( 'Chapter', 'Chapter', 'bobon' ),
+    'menu_name'             => __( 'Farmer\'s Library', 'bobon' ),
+    'name_admin_bar'        => __( 'Chapter', 'bobon' ),
+    'archives'              => __( 'Item Archives', 'bobon' ),
+    'parent_item_colon'     => __( 'Parent Item:', 'bobon' ),
+    'all_items'             => __( 'All Chapters', 'bobon' ),
+    'add_new_item'          => __( 'Add New Chapter', 'bobon' ),
+    'add_new'               => __( 'Add New', 'bobon' ),
+    'new_item'              => __( 'New Item', 'bobon' ),
+    'edit_item'             => __( 'Edit Item', 'bobon' ),
+    'update_item'           => __( 'Update Item', 'bobon' ),
+    'view_item'             => __( 'View Item', 'bobon' ),
+    'search_items'          => __( 'Search Item', 'bobon' ),
+    'not_found'             => __( 'Not found', 'bobon' ),
+    'not_found_in_trash'    => __( 'Not found in Trash', 'bobon' ),
+    'featured_image'        => __( 'Featured Image', 'bobon' ),
+    'set_featured_image'    => __( 'Set featured image', 'bobon' ),
+    'remove_featured_image' => __( 'Remove featured image', 'bobon' ),
+    'use_featured_image'    => __( 'Use as featured image', 'bobon' ),
+    'insert_into_item'      => __( 'Insert into item', 'bobon' ),
+    'uploaded_to_this_item' => __( 'Uploaded to this item', 'bobon' ),
+    'items_list'            => __( 'Items list', 'bobon' ),
+    'items_list_navigation' => __( 'Items list navigation', 'bobon' ),
+    'filter_items_list'     => __( 'Filter items list', 'bobon' ),
+  );
+  $args = array(
+    'label'                 => __( 'Chapter', 'bobon' ),
+    'description'           => __( 'All chapters', 'bobon' ),
+    'labels'                => $labels,
+    'supports'              => array( 'title', 'editor', 'custom-fields', 'revisions', 'thumbnail', 'page-attributes', 'author', 'excerpt' ),
+    'taxonomies'            => array( 'chapter_type' ),
+    'hierarchical'          => true,
+    'public'                => true,
+    'show_ui'               => true,
+    'show_in_menu'          => true,
+    'show_in_rest'          => true,
+    'rest_base'             => 'farmer_library',
+    'menu_position'         => 5,
+    'show_in_admin_bar'     => true,
+    'show_in_nav_menus'     => true,
+    'can_export'            => true,
+    'has_archive'           => true,
+    'exclude_from_search'   => true,
+    'publicly_queryable'    => true,
+    'capability_type'       => 'page',
+  );
+  register_post_type( 'chapter', $args );
 }
 add_action( 'init', 'custom_post_type', 0 );
 
 // Register Custom Chapter Category
 function custom_taxonomy() {
 
-    $labels = array(
-        'name'                       => _x( 'Chapter Categories', 'Chapter Categories', 'bobon' ),
-        'singular_name'              => _x( 'Chapter Category', 'Chapter Category', 'bobon' ),
-        'menu_name'                  => __( 'Chapter Categories', 'bobon' ),
-        'all_items'                  => __( 'All Items', 'bobon' ),
-        'parent_item'                => __( 'Parent Item', 'bobon' ),
-        'parent_item_colon'          => __( 'Parent Item:', 'bobon' ),
-        'new_item_name'              => __( 'New Item Name', 'bobon' ),
-        'add_new_item'               => __( 'Add New Item', 'bobon' ),
-        'edit_item'                  => __( 'Edit Item', 'bobon' ),
-        'update_item'                => __( 'Update Item', 'bobon' ),
-        'view_item'                  => __( 'View Item', 'bobon' ),
+  $labels = array(
+    'name'                       => _x( 'Chapter Categories', 'Chapter Categories', 'bobon' ),
+    'singular_name'              => _x( 'Chapter Category', 'Chapter Category', 'bobon' ),
+    'menu_name'                  => __( 'Chapter Categories', 'bobon' ),
+    'all_items'                  => __( 'All Items', 'bobon' ),
+    'parent_item'                => __( 'Parent Item', 'bobon' ),
+    'parent_item_colon'          => __( 'Parent Item:', 'bobon' ),
+    'new_item_name'              => __( 'New Item Name', 'bobon' ),
+    'add_new_item'               => __( 'Add New Item', 'bobon' ),
+    'edit_item'                  => __( 'Edit Item', 'bobon' ),
+    'update_item'                => __( 'Update Item', 'bobon' ),
+    'view_item'                  => __( 'View Item', 'bobon' ),
         'separate_items_with_commas' => __( 'Separate items with commas', 'bobon' ),
         'add_or_remove_items'        => __( 'Add or remove items', 'bobon' ),
         'choose_from_most_used'      => __( 'Choose from the most used', 'bobon' ),
