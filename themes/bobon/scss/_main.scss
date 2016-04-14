@@ -46,15 +46,19 @@ article {
   .wp-caption {
     max-width: calc(128.55% + 50px) !important;
     margin-left: calc(-14.25% - 25px);
+    p {
+      font-size: 0.7em;
+      text-align: center;
+    }
     &.alignleft {
       float: left;
       margin-right: 1em;
+      p {
+        text-align: left;
+      }
     }
-    p {
-      background: $black;
-      color: #fff;
-      font-size: 0.8em;
-      padding: 0.5em 1em;
+    a {
+      text-decoration: underline;
     }
   }
   img {
