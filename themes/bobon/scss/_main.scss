@@ -34,6 +34,9 @@ body.home {
 }
 
 article {
+  hr {
+    border-bottom: 0;
+  }
   strong, .easy-table th {
     font-weight: 400;
   }
