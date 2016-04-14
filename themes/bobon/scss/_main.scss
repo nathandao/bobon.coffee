@@ -63,5 +63,34 @@ article {
   .wp-caption-text {
     font-style: italic;
   }
+  blockquote {
+    border-left: 0;
+    box-sizing: border-box;
+    float: left;
+    font-family: $header-font-family;
+    font-size: 1.5em;
+    line-height: 1.6;
+    padding: 40px 50px;
+    width: 100%;
+    position: relative;
+
+    &:before,
+    &:after {
+      display: block;
+      font-family: serif;
+      font-size: 3em;
+      position: absolute;
+    }
+    &:before {
+      content: "“";
+      left: 0px;
+      top: 0px;
+    }
+    &:after {
+      bottom: 0px;
+      content: "”";
+      right: 0px;
+    }
+  }
 }
 
