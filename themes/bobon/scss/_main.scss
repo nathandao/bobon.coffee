@@ -110,3 +110,16 @@ article {
   }
 }
 
+footer {
+  clear: both;
+  color: $white;
+  float: left;
+  font-size: 0.7em;
+  position: relative;
+  width: 100%;
+  z-index: 99999;
+  div {
+    background: $black;
+    padding: 1em 25px;
+  }
+}
