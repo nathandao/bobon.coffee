@@ -1,8 +1,8 @@
-<?php wp_footer(); ?>
-<footer class="row">
+<div class="row" id="footer">
   <div class="full-width">
     © 2016 bobon. All rights reserved.
   </div>
-</footer>
+</div>
+<?php wp_footer(); ?>
 </body>
 </html>
