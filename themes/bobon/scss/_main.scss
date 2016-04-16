@@ -1,5 +1,8 @@
 html {
+  box-sizing: conent-box;
   min-height: 100%;
+  padding-bottom: 46px;
+  position: relative;
 }
 
 body {
@@ -115,11 +118,13 @@ article {
 }
 
 #footer {
+  bottom: 0px;
   clear: both;
   color: $white;
   float: left;
   font-size: 0.7em;
-  position: relative;
+  left: 0;
+  position: absolute;
   width: 100%;
   z-index: 99999;
   div {
