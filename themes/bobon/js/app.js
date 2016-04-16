@@ -14,26 +14,6 @@ var mobileSidebar = (function($) {
   };
 })(jQuery);
 
-var footer = (function($) {
-  function init() {
-    var $footer = $('#footer'),
-        fTop = $footer.position().top;
-    console.log($('html').height());
-    console.log(fTop);
-    if ($('html').height() > (fTop + $footer.height())) {
-      $footer.css({
-        bottom: 0,
-        left: 0,
-        position: "fixed"
-      });
-    }
-  }
-
-  return {
-    init: init
-  };
-})(jQuery);
-
 var hierarchyDrawer = (function($) {
   function init() {
     $('.hierarchy-toggle').click(function(e) {
@@ -61,5 +41,4 @@ var hierarchyDrawer = (function($) {
   $(document).foundation();
   mobileSidebar.init();
   hierarchyDrawer.init();
-  footer.init();
 })(jQuery);
