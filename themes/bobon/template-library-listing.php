@@ -33,6 +33,7 @@
       <div class="small-12 large-7 row columns hierarchy-drawer hierarchy-list" id="hierarchy-drawer-<?php echo $top_page->ID ?>">
         <h1><?php echo $top_page->post_title ?></h1>
         <?php echo get_page_hierarchy_html( $top_page->ID, $top_page->ID, "row" ) ?>
+        <a class="close-listing-btn" href="#"></a>
       </div>
     <?php endforeach; ?>
   <?php endif; ?>

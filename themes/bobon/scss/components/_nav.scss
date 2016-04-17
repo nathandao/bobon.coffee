@@ -187,3 +187,19 @@
     transform: translateX(0);
   }
 }
+
+.close-listing-btn {
+  background-size: cover;
+  background: url("../images/cross.png") center center transparent no-repeat;
+  border: 2px solid $black;
+  box-sizing: content-box;
+  cursor: pointer;
+  display: block;
+  height: 50px;
+  line-height: 50px;
+  position: absolute;
+  right: 20px;
+  text-align: center;
+  top: 20px;
+  width: 50px;
+}

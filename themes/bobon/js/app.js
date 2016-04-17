@@ -30,6 +30,11 @@ var hierarchyDrawer = (function($) {
         $drawer.addClass('active');
       }
     });
+    // Close button
+    $('.close-listing-btn').click(function(e) {
+      e.preventDefault();
+      $('.hierarchy-list.active').removeClass('active');
+    });
   }
 
   return {
