@@ -9,7 +9,8 @@ var sassPaths = [
 gulp.task('sass', function() {
   return gulp.src('scss/app.scss')
     .pipe($.sass({
-      includePaths: sassPaths
+      includePaths: sassPaths,
+      outputStyle: 'compressed'
     })
       .on('error', $.sass.logError))
     .pipe($.autoprefixer({
