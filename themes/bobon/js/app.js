@@ -34,6 +34,7 @@ var hierarchyDrawer = (function($) {
     $('.close-listing-btn').click(function(e) {
       e.preventDefault();
       $('.hierarchy-list.active').removeClass('active');
+      $('.hierarchy-toggle.active').removeClass('active');
     });
   }
 
